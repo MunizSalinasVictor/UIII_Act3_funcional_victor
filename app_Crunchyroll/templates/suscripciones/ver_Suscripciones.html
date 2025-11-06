@@ -20,6 +20,7 @@
                         <th>Precio</th>
                         <th>Calidad Video</th>
                         <th>Dispositivos</th>
+                        <th>Beneficio Extra</th>
                         <th>Descarga Offline</th>
                         <th>Acciones</th>
                     </tr>
@@ -32,6 +33,7 @@
                         <td>${{ suscripcion.precio }}</td>
                         <td>{{ suscripcion.calidad_video }}</td>
                         <td>{{ suscripcion.num_dispositivos }}</td>
+                        <td>{{ suscripcion.beneficio_extra }}</td>
                         <td>
                             {% if suscripcion.descarga_offline %}
                                 <span class="badge bg-success">✅ Sí</span>
