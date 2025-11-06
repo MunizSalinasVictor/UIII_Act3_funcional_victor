@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse
 from .models import Suscripcion
 
 def inicio_crunchyroll(request):
@@ -36,5 +37,11 @@ def actualizar_Suscripcion(request, id):
 
 def borrar_Suscripcion(request, id):
     suscripcion = get_object_or_404(Suscripcion, id=id)
-    suscripcion.delete()
-    return redirect('ver_Suscripciones')
+    
+    if request.method == 'POST':
+        # Confirmación para eliminar
+        suscripcion.delete()
+        return redirect('ver_Suscripciones')
+    
+    # Mostrar página de confirmación
+    return render(request, 'suscripciones/borrar_Suscripcion.html', {'suscripcion': suscripcion})
